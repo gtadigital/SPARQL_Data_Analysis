@@ -1,0 +1,16 @@
+################################################################################
+
+# All the facets from AAT thesaurus with the number of the direct sub-concepts #
+
+################################################################################
+
+SELECT ?facet ?label (count (?concept)as ?concept_NR) {
+  ?facet a gvp:Facet;
+           gvp:prefLabelGVP/xl:literalForm ?label;
+           skos:inScheme aat:.
+           
+  ?facet skos:member+ ?concept
+}
+
+GROUP BY ?facet ?label
+
