@@ -1,8 +1,8 @@
-################################################################################
+#####################################################################################
 
-# All the facets from AAT thesaurus with the number of the direct sub-concepts #
+# Number of concepts from AAT facet(s)  (skos:member) #
 
-################################################################################
+#####################################################################################
 
 SELECT ?facet ?label (count (?concept)as ?concept_NR) {
   ?facet a gvp:Facet;
@@ -14,3 +14,28 @@ SELECT ?facet ?label (count (?concept)as ?concept_NR) {
 
 GROUP BY ?facet ?label
 
+
+
+#######################################################################################
+
+# Number of concepts from AAT facet(s) divided per EN / DE / IT / FR labels (skos:member) #
+
+#######################################################################################
+
+
+
+SELECT DISTINCT ?facet  (count(?concept_label_en) AS ?EN) (count(?concept_label_de)AS ?DE) (count(?concept_label_it) AS ?IT) (count(?concept_label_fr)AS ?FR)
+  {
+  ?facet a gvp:Facet;
+           ##gvp:prefLabelGVP/xl:literalForm ?label;
+           skos:inScheme aat:.         
+  ?facet skos:member+ ?concept.
+         
+        OPTIONAL {{ ?concept xl:prefLabel ?concept_labelEN.?concept_labelEN gvp:term ?concept_label_en.} FILTER langMatches(lang(?concept_label_en), "en").}
+        OPTIONAL {{ ?concept xl:prefLabel ?concept_labelDE.?concept_labelDE gvp:term ?concept_label_de.} FILTER langMatches(lang(?concept_label_de), "de").}
+        OPTIONAL {{ ?concept xl:prefLabel ?concept_labelIT.?concept_labelIT gvp:term ?concept_label_it.} FILTER langMatches(lang(?concept_label_it), "it").}
+        OPTIONAL {{ ?concept xl:prefLabel ?concept_labelFR.?concept_labelFR gvp:term ?concept_label_fr.} FILTER langMatches(lang(?concept_label_fr), "fr").}
+
+}
+
+GROUP BY ?facet 
