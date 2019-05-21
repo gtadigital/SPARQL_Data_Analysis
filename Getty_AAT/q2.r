@@ -10,11 +10,13 @@ endpoint <- "http://vocab.getty.edu/sparql"
 
 #Q2 -   Number of triples per CLARIN graph
 
-q <- "SELECT DISTINCT ?facet  (count(?concept_label_en) AS ?EN) (count(?concept_label_de)AS ?DE) (count(?concept_label_it) AS ?IT) (count(?concept_label_fr)AS ?FR)
+q <- "SELECT DISTINCT ?label  (count(?concept_label_en) AS ?EN) (count(?concept_label_de)AS ?DE) (count(?concept_label_it) AS ?IT) (count(?concept_label_fr)AS ?FR)
   {
   ?facet a gvp:Facet;
            ##gvp:prefLabelGVP/xl:literalForm ?label;
-           skos:inScheme aat:.         
+           skos:inScheme aat:;
+           gvp:prefLabelGVP ?prefLabel.
+  ?prefLabel xl:literalForm ?label.
   ?facet skos:member+ ?concept.
          
         OPTIONAL {{ ?concept xl:prefLabel ?concept_labelEN.?concept_labelEN gvp:term ?concept_label_en.} FILTER langMatches(lang(?concept_label_en), 'en').}
@@ -24,7 +26,7 @@ q <- "SELECT DISTINCT ?facet  (count(?concept_label_en) AS ?EN) (count(?concept_
 
 }
 
-GROUP BY ?facet 
+GROUP BY ?label
   "
 
 res <- SPARQL(url=endpoint, q)$results
