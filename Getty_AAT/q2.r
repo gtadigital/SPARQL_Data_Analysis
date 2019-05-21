@@ -31,26 +31,26 @@ GROUP BY ?label
 
 res <- SPARQL(url=endpoint, q)$results
 
-p1 <- ggplot(res, aes(x=reorder(facet, -EN), 
-y=EN, fill=facet)) + theme_bw() + geom_bar(stat='identity') + 
+p1 <- ggplot(res, aes(x=reorder(label, -EN), 
+y=EN, fill=label)) + theme_bw() + geom_bar(stat='identity') + 
 theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5)) + 
 ggtitle('EN') + 
 labs(x='Facet'	, y='Concepts') + theme(legend.position='none')
 
-p2 <- ggplot(res, aes(x=reorder(facet, -DE), 
-y=DE, fill=facet)) + theme_bw() + geom_bar(stat='identity') + 
+p2 <- ggplot(res, aes(x=reorder(label, -DE), 
+y=DE, fill=label)) + theme_bw() + geom_bar(stat='identity') + 
 theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5)) + 
 ggtitle('DE') + 
 labs(x='Facet'	, y='Concepts') + theme(legend.position='none')
 
-p3 <- ggplot(res, aes(x=reorder(facet, -IT), 
-y=IT, fill=facet)) + theme_bw() + geom_bar(stat='identity') + 
+p3 <- ggplot(res, aes(x=reorder(label, -IT), 
+y=IT, fill=label)) + theme_bw() + geom_bar(stat='identity') + 
 theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5)) + 
 ggtitle('IT') + 
 labs(x='Facet'	, y='Concepts') + theme(legend.position='none')
 
-p4 <- ggplot(res, aes(x=reorder(facet, -FR), 
-y=FR, fill=facet)) + theme_bw() + geom_bar(stat='identity') + 
+p4 <- ggplot(res, aes(x=reorder(label, -FR), 
+y=FR, fill=label)) + theme_bw() + geom_bar(stat='identity') + 
 theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5)) + 
 ggtitle('FR') + 
 labs(x='Facet'	, y='Concepts') + theme(legend.position='none')
