@@ -5,7 +5,6 @@ library(reshape)
 library(scales)
 endpoint <- "http://vocab.getty.edu/sparql"
 
-#Q2 -   Number of triples per CLARIN graph
 
 q <- "SELECT ?facet ?label (count (?concept)as ?concept_NR) {
   ?facet a gvp:Facet;
