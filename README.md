@@ -11,6 +11,7 @@ The repositories contains some scripts built using R and R-SPARQL library useful
 * SPARQL
 * Reshape
 * Scales
+* gridExtra
 
 ### Installing
 
@@ -34,6 +35,7 @@ install.packages("ggplot2")
 install.packages("SPARQL")
 install.packages("reshape")
 install.packages("scales")
+install.packages("gridextra")
 ```
 
 ## Running the script
