@@ -17,7 +17,7 @@ q <- "SELECT DISTINCT ?label  (count(?concept_label_en) AS ?EN) (count(?concept_
            skos:inScheme aat:;
            gvp:prefLabelGVP ?prefLabel.
   ?prefLabel xl:literalForm ?label.
-  ?facet skos:member+ ?concept.
+  ?concept gvp:broaderPreferred+ ?facet.
          
         OPTIONAL {{ ?concept xl:prefLabel ?concept_labelEN.?concept_labelEN gvp:term ?concept_label_en.} FILTER langMatches(lang(?concept_label_en), 'en').}
         OPTIONAL {{ ?concept xl:prefLabel ?concept_labelDE.?concept_labelDE gvp:term ?concept_label_de.} FILTER langMatches(lang(?concept_label_de), 'de').}
