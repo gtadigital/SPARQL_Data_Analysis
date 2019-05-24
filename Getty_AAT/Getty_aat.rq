@@ -9,7 +9,7 @@ SELECT ?facet ?label (count (?concept)as ?concept_NR) {
            gvp:prefLabelGVP/xl:literalForm ?label;
            skos:inScheme aat:.
            
-  ?facet skos:member+ ?concept
+  ?concept gvp:broaderPreferred+ ?facet
 }
 
 GROUP BY ?facet ?label
