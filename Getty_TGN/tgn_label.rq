@@ -4,7 +4,7 @@ PREFIX xl: <http://www.w3.org/2008/05/skos-xl#>
 PREFIX gvp: <http://vocab.getty.edu/ontology#>
 
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-SELECT  ?concept ?label ?concept_label_en ?concept_label_de ?concept_label_it ?concept_label_fr
+SELECT  ?concept ?label ?concept_label_en ?concept_label_de ?concept_label_it ?concept_label_fr ?concept_label_hu ?concept_label_ca ?concept_label_ru ?concept_label_es ?concept_label_ellatn
 
 WHERE {?s  gvp:AdminPlaceConcept ?concept;
            rdfs:label ?label.
@@ -15,7 +15,11 @@ WHERE {?s  gvp:AdminPlaceConcept ?concept;
         OPTIONAL {{ ?concept xl:prefLabel ?concept_labelDE.?concept_labelDE gvp:term ?concept_label_de.} FILTER langMatches(lang(?concept_label_de), "de").}
         OPTIONAL {{ ?concept xl:prefLabel ?concept_labelIT.?concept_labelIT gvp:term ?concept_label_it.} FILTER langMatches(lang(?concept_label_it), "it").}
         OPTIONAL {{ ?concept xl:prefLabel ?concept_labelFR.?concept_labelFR gvp:term ?concept_label_fr.} FILTER langMatches(lang(?concept_label_fr), "fr").}
-     
+        OPTIONAL {{ ?concept xl:prefLabel ?concept_labelHU.?concept_labelHU gvp:term ?concept_label_hu.} FILTER langMatches(lang(?concept_label_hu), "hu").}
+   		OPTIONAL {{ ?concept xl:prefLabel ?concept_labelCA.?concept_labelCA gvp:term ?concept_label_ca.} FILTER langMatches(lang(?concept_label_ca), "ca").}
+   		OPTIONAL {{ ?concept xl:prefLabel ?concept_labelRU.?concept_labelRU gvp:term ?concept_label_ru.} FILTER langMatches(lang(?concept_label_ru), "ru").}
+   		OPTIONAL {{ ?concept xl:prefLabel ?concept_labelES.?concept_labelES gvp:term ?concept_label_es.} FILTER langMatches(lang(?concept_label_es), "es").}
+   		OPTIONAL {{ ?concept xl:prefLabel ?concept_labelELLATN.?concept_labelELLATN gvp:term ?concept_label_ellatn.} FILTER langMatches(lang(?concept_label_ellatn), "el-latn").}
    }
     
     
