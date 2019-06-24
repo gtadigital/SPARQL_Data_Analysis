@@ -17,11 +17,11 @@ WHERE {?s  gvp:AdminPlaceConcept ?concept;
   SERVICE <http://vocab.getty.edu/sparql> {
        ?concept a gvp:AdminPlaceConcept.
         
-        OPTIONAL {{ ?concept xl:prefLabel ?concept_labelEN.?concept_labelEN gvp:term ?concept_label_en.} FILTER langMatches(lang(?concept_label_en), "en").}
-        OPTIONAL {{ ?concept xl:prefLabel ?concept_labelDE.?concept_labelDE gvp:term ?concept_label_de.} FILTER langMatches(lang(?concept_label_de), "de").}
-        OPTIONAL {{ ?concept xl:prefLabel ?concept_labelIT.?concept_labelIT gvp:term ?concept_label_it.} FILTER langMatches(lang(?concept_label_it), "it").}
-        OPTIONAL {{ ?concept xl:prefLabel ?concept_labelFR.?concept_labelFR gvp:term ?concept_label_fr.} FILTER langMatches(lang(?concept_label_fr), "fr").}
-        OPTIONAL {{ ?concept xl:prefLabel ?concept_labelHU.?concept_labelHU gvp:term ?concept_label_hu.} FILTER langMatches(lang(?concept_label_hu), "hu").}
+      OPTIONAL {{ ?concept xl:prefLabel ?concept_labelEN.?concept_labelEN gvp:term ?concept_label_en.} FILTER langMatches(lang(?concept_label_en), "en").}
+      OPTIONAL {{ ?concept xl:prefLabel ?concept_labelDE.?concept_labelDE gvp:term ?concept_label_de.} FILTER langMatches(lang(?concept_label_de), "de").}
+      OPTIONAL {{ ?concept xl:prefLabel ?concept_labelIT.?concept_labelIT gvp:term ?concept_label_it.} FILTER langMatches(lang(?concept_label_it), "it").}
+      OPTIONAL {{ ?concept xl:prefLabel ?concept_labelFR.?concept_labelFR gvp:term ?concept_label_fr.} FILTER langMatches(lang(?concept_label_fr), "fr").}
+      OPTIONAL {{ ?concept xl:prefLabel ?concept_labelHU.?concept_labelHU gvp:term ?concept_label_hu.} FILTER langMatches(lang(?concept_label_hu), "hu").}
    		OPTIONAL {{ ?concept xl:prefLabel ?concept_labelCA.?concept_labelCA gvp:term ?concept_label_ca.} FILTER langMatches(lang(?concept_label_ca), "ca").}
    		OPTIONAL {{ ?concept xl:prefLabel ?concept_labelRU.?concept_labelRU gvp:term ?concept_label_ru.} FILTER langMatches(lang(?concept_label_ru), "ru").}
    		OPTIONAL {{ ?concept xl:prefLabel ?concept_labelES.?concept_labelES gvp:term ?concept_label_es.} FILTER langMatches(lang(?concept_label_es), "es").}
@@ -67,10 +67,10 @@ WHERE {?s  gvp:AdminPlaceConcept ?concept;
         OPTIONAL {{ ?concept xl:prefLabel ?concept_labelIT.?concept_labelIT gvp:term ?concept_label_it.} FILTER langMatches(lang(?concept_label_it), "it").}
         OPTIONAL {{ ?concept xl:prefLabel ?concept_labelFR.?concept_labelFR gvp:term ?concept_label_fr.} FILTER langMatches(lang(?concept_label_fr), "fr").}
         OPTIONAL {{ ?concept xl:prefLabel ?concept_labelHU.?concept_labelHU gvp:term ?concept_label_hu.} FILTER langMatches(lang(?concept_label_hu), "hu").}
-      OPTIONAL {{ ?concept xl:prefLabel ?concept_labelCA.?concept_labelCA gvp:term ?concept_label_ca.} FILTER langMatches(lang(?concept_label_ca), "ca").}
-      OPTIONAL {{ ?concept xl:prefLabel ?concept_labelRU.?concept_labelRU gvp:term ?concept_label_ru.} FILTER langMatches(lang(?concept_label_ru), "ru").}
-      OPTIONAL {{ ?concept xl:prefLabel ?concept_labelES.?concept_labelES gvp:term ?concept_label_es.} FILTER langMatches(lang(?concept_label_es), "es").}
-      OPTIONAL {{ ?concept xl:prefLabel ?concept_labelELLATN.?concept_labelELLATN gvp:term ?concept_label_ellatn.} FILTER langMatches(lang(?concept_label_ellatn), "el-latn").}
+        OPTIONAL {{ ?concept xl:prefLabel ?concept_labelCA.?concept_labelCA gvp:term ?concept_label_ca.} FILTER langMatches(lang(?concept_label_ca), "ca").}
+        OPTIONAL {{ ?concept xl:prefLabel ?concept_labelRU.?concept_labelRU gvp:term ?concept_label_ru.} FILTER langMatches(lang(?concept_label_ru), "ru").}
+        OPTIONAL {{ ?concept xl:prefLabel ?concept_labelES.?concept_labelES gvp:term ?concept_label_es.} FILTER langMatches(lang(?concept_label_es), "es").}
+        OPTIONAL {{ ?concept xl:prefLabel ?concept_labelELLATN.?concept_labelELLATN gvp:term ?concept_label_ellatn.} FILTER langMatches(lang(?concept_label_ellatn), "el-latn").}
    }
     
     
