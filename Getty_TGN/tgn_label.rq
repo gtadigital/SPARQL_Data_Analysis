@@ -88,20 +88,23 @@ LIMIT 10
 
 
 
+
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX xl: <http://www.w3.org/2008/05/skos-xl#>
 PREFIX gvp: <http://vocab.getty.edu/ontology#>
+PREFIX wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#>
 
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-SELECT  ?concept ?label (group_concat( ?concept_label;separator="|" ) as ?concept_labels)
+SELECT  ?concept ?label (group_concat( ?concept_label;separator="|" ) as ?concept_labels) ?lat ?long
 
 WHERE {?s  gvp:AdminPlaceConcept ?concept;
            rdfs:label ?label.
   SERVICE <http://vocab.getty.edu/sparql> {
        ?concept a gvp:AdminPlaceConcept;
                   xl:prefLabel ?label_term.
-       ?label_term gvp:term ?concept_label
+       ?label_term gvp:term ?concept_label.
+    ?concept foaf:focus [wgs:lat ?lat; wgs:long ?long].
        
    
    }
@@ -109,8 +112,8 @@ WHERE {?s  gvp:AdminPlaceConcept ?concept;
     
     
 }
- 
-GROUP BY ?concept ?label ?concept_label
+
+GROUP BY ?concept ?label ?concept_labels ?lat ?long
 
 
 
