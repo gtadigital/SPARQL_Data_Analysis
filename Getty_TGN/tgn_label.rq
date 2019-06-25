@@ -80,3 +80,37 @@ WHERE {?s  gvp:AdminPlaceConcept ?concept;
 LIMIT 10
 
 
+###################################################################################################################################################################################################
+
+# Q3 PLACES AND RELATED LABELS NO FILTER 
+
+####################################################################################################################################################################################################
+
+
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX xl: <http://www.w3.org/2008/05/skos-xl#>
+PREFIX gvp: <http://vocab.getty.edu/ontology#>
+
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+SELECT  ?concept ?label (group_concat( ?concept_label;separator="|" ) as ?concept_labels)
+
+WHERE {?s  gvp:AdminPlaceConcept ?concept;
+           rdfs:label ?label.
+  SERVICE <http://vocab.getty.edu/sparql> {
+       ?concept a gvp:AdminPlaceConcept;
+                  xl:prefLabel ?label_term.
+       ?label_term gvp:term ?concept_label
+       
+   
+   }
+    
+    
+    
+}
+ 
+GROUP BY ?concept ?label ?concept_label
+
+
+
